@@ -94,14 +94,16 @@ public class Node {
 	public boolean findLabel(String label){
 
 		boolean found = false;
-		if(found = true)
-			return found;
+
 		if(this.getLabel().contentEquals(label))
-			found = true;
+			return found = true;
 		else if(this.getNumberOfAdjacents() > 0 || this.getAdjacents() != null)
-			for(Node tmp : this.getAdjacents())
-				found =  tmp.findLabel(label);
-		return false;
+			for(Node tmp : this.getAdjacents()) {
+				found = tmp.findLabel(label);
+				if(found)
+					return found;
+			}
+		return found;
 	}
 
 }
